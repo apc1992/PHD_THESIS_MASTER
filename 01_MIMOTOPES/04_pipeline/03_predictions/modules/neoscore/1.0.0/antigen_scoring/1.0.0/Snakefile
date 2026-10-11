@@ -1,0 +1,6 @@
+import os
+include: os.path.join("rules", "antigen_scoring.smk")
+
+rule all:
+    input:
+        merged_pep_scores = rules.merge_score_files.output.merged_pep_scores

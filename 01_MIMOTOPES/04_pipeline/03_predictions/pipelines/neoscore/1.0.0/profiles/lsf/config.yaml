@@ -1,0 +1,10 @@
+cluster: "bsub -J 'rule={rule},wilcards={wildcards.sample},jobid={jobid}' -M {cluster.mem} -n {threads} -W {cluster.time} -o 'logs/cluster/%J.log' -e 'logs/cluster/%J.err' -R 'select[mem>{cluster.mem}] rusage[mem={cluster.mem}]' {cluster.host}  -q {cluster.queue}"
+cluster-config: "pipelines/neoscore/1.0.0/profiles/lsf/cluster.yaml"
+jobs: 1000
+latency-wait: 90
+use-singularity: false
+singularity-args: "--net --network none -B $(pwd) -B /rsrch4:/rsrch4  -B /rsrch5:/rsrch5 -B /rsrch6:/rsrch6 -B /rsrch9:/rsrch9"
+printshellcmds: true
+keep-going: true
+retries: 0
+shadow-prefix: "/tmp"

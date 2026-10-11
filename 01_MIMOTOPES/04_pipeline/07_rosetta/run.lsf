@@ -1,0 +1,14 @@
+#BSUB -W 24:00
+#BSUB -q medium
+#BSUB -n 1
+#BSUB -M 50
+#BSUB -R rusage[mem=50]
+#BSUB -J rosetta
+#BSUB -o ./logs
+#BSUB -cwd .
+
+snakemake -s Snakefile --keep-going  --jobs 5000 --latency-wait 300 \
+--cluster-config config/cluster.json \
+--cluster "bsub -M {cluster.mem} -n {cluster.n} -W {cluster.time} -R 'select[mem>{cluster.mem}] rusage[mem={cluster.mem}]' -q {cluster.queue}" \
+--use-singularity --singularity-args="--net --network none -B $(pwd) -B /rsrch4:/rsrch4 -B /rsrch5:/rsrch5 -B /rsrch6:/rsrch6 -B /rsrch9:/rsrch9" --printshellcmds \
+--rerun-triggers mtime

@@ -1,0 +1,6 @@
+containers:
+  netmhcpan: "/rsrch6/home/hema_bio-Malignan/adp_shukla/pipeline_resources/netmhcpan-4.2/netmhcpan.v4.2.sif"
+netmhcpan:
+  available_alleles: "/rsrch6/home/hema_bio-Malignan/adp_shukla/pipeline_resources/netmhcpan-4.1b/list_mhc_alleles.txt"
+  alleles:
+    A: "HLA-A02:01"

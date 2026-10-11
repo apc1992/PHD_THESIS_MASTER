@@ -1,0 +1,87 @@
+# Snakefile
+import pandas as pd
+import os
+import json
+
+configfile: "config/config.yaml"
+
+# Load cluster settings from the cluster configuration file
+with open(os.path.join("config", "cluster.json")) as f:
+    config["cluster"] = json.load(f)
+
+# Load the input libraries mapping
+input_df = pd.read_csv(config["input_csv"])
+PEPTIDES = input_df["peptide"].tolist()
+PEP_TO_CIF = dict(zip(input_df["peptide"], input_df["cif"]))
+
+rule all:
+    input:
+        # Require both relaxation scores and interface analysis scores
+        expand(os.path.join(config["output_dir"], "{peptide}", "score.sc"), peptide=PEPTIDES),
+        expand(os.path.join(config["output_dir"], "{peptide}", "interface_score.sc"), peptide=PEPTIDES)
+
+rule rosetta_relax:
+    input:
+        cif = lambda wildcards: PEP_TO_CIF[wildcards.peptide]
+    output:
+        scorefile = os.path.join(config["output_dir"], "{peptide}", "score.sc")
+    params:
+        outdir = lambda wildcards: os.path.join(config["output_dir"], wildcards.peptide),
+        nstruct = config["nstruct"]
+    singularity:
+        config["rosetta_container"]
+    log:
+        "logs/rosetta_relax/{peptide}.log"
+    threads: config["cluster"]["rosetta_relax"]["n"]
+    resources:
+        mem = config["cluster"]["rosetta_relax"]["mem"],
+        mem_mb = config["cluster"]["rosetta_relax"]["mem"] * 1024
+    shell:
+        """
+        mkdir -p {params.outdir}
+        export ROSETTA3_DB=/usr/local/lib/python3.8/dist-packages/pyrosetta/database
+
+        relax.default.linuxgccrelease \
+            -in:path:database $ROSETTA3_DB \
+            -in:file:s {input.cif} \
+            -out:path:all {params.outdir} \
+            -out:file:scorefile score.sc \
+            -relax:constrain_relax_to_start_coords \
+            -relax:ramp_constraints false \
+            -ex1 \
+            -ex2 \
+            -use_input_sc \
+            -nstruct {params.nstruct} \
+            -overwrite > {log} 2>&1
+        """
+
+rule rosetta_interface_analyzer:
+    input:
+        # Depends on completion of relax rule for the peptide
+        relax_done = os.path.join(config["output_dir"], "{peptide}", "score.sc")
+    output:
+        interface_score = os.path.join(config["output_dir"], "{peptide}", "interface_score.sc")
+    params:
+        outdir = lambda wildcards: os.path.join(config["output_dir"], wildcards.peptide)
+    singularity:
+        config["rosetta_container"]
+    log:
+        "logs/rosetta_interface_analyzer/{peptide}.log"
+    threads: 1
+    resources:
+        mem = 4,
+        mem_mb = 4096
+    shell:
+        """
+        export ROSETTA3_DB=/usr/local/lib/python3.8/dist-packages/pyrosetta/database
+
+        InterfaceAnalyzer.default.linuxgccrelease \
+            -in:path:database $ROSETTA3_DB \
+            -in:file:s {params.outdir}/*.pdb \
+            -fixedchains A B \
+            -compute_packstat true \
+            -pack_separated true \
+            -out:path:all {params.outdir} \
+            -out:file:scorefile interface_score.sc \
+            -overwrite > {log} 2>&1
+        """

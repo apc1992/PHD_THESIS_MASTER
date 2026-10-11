@@ -1,0 +1,8 @@
+import os
+include: os.path.join("rules", "netmhcstab.smk")
+
+rule all:
+    input:
+        # From merge_netmhcstabpan_predictions
+        full_predictions = rules.merge_netmhcstabpan_predictions.output.full_predictions,
+        combined_table = rules.merge_netmhcstabpan_predictions.output.combined_table

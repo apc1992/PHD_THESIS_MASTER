@@ -1,0 +1,77 @@
+[2026-09-16 10:29:16] [INFO] [08_final_candidates]: === Starting Module 08: Final Candidates Selection ===
+[2026-09-16 10:29:16] [ERROR] [08_final_candidates]: Module 08 failed with error: 'peptide'
+Traceback (most recent call last):
+  File "/rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/scripts/main.py", line 75, in main
+    df_master = compile_master_candidate_table(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/scripts/step01_compile_master_table.py", line 53, in compile_master_candidate_table
+    df_master = pd.merge(df_master, df_rosetta[cols_to_use], on="peptide", how="left")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/rsrch4/home/hema_bio-Malignan/aperis/.conda/envs/mimotopes_env/lib/python3.11/site-packages/pandas/core/reshape/merge.py", line 170, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "/rsrch4/home/hema_bio-Malignan/aperis/.conda/envs/mimotopes_env/lib/python3.11/site-packages/pandas/core/reshape/merge.py", line 794, in __init__
+    ) = self._get_merge_keys()
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/rsrch4/home/hema_bio-Malignan/aperis/.conda/envs/mimotopes_env/lib/python3.11/site-packages/pandas/core/reshape/merge.py", line 1311, in _get_merge_keys
+    left_keys.append(left._get_label_or_level_values(lk))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/rsrch4/home/hema_bio-Malignan/aperis/.conda/envs/mimotopes_env/lib/python3.11/site-packages/pandas/core/generic.py", line 1914, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'peptide'
+[2026-09-16 10:31:45] [INFO] [08_final_candidates]: === Starting Module 08: Final Candidates Selection ===
+[2026-09-16 10:31:45] [INFO] [08_final_candidates]: Compiled master table: 150 total candidate peptides.
+[2026-09-16 10:31:45] [INFO] [08_final_candidates]: Successfully ranked candidates using 4-pillar composite scoring.
+[2026-09-16 10:31:45] [INFO] [08_final_candidates]: Exported master table: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/output/master_150_candidates_annotated.csv
+[2026-09-16 10:31:45] [INFO] [08_final_candidates]: Exported validation leads table: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/output/final_candidates_for_validation.csv
+[2026-09-16 10:31:46] [INFO] [08_final_candidates]: Saved Figure 1 to /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/figures/candidate_selection_funnel.png
+[2026-09-16 10:31:47] [INFO] [08_final_candidates]: Saved Figure 2 to /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/figures/lead_candidates_zscore_breakdown.png
+[2026-09-16 10:31:47] [INFO] [08_final_candidates]: === Module 08 Execution Completed Successfully ===
+[2026-09-16 10:35:04] [INFO] [08_final_candidates]: === Starting Module 08: Final Candidates Selection ===
+[2026-09-16 10:35:04] [INFO] [08_final_candidates]: Compiled master table: 22500 total candidate peptides.
+[2026-09-16 10:35:04] [INFO] [08_final_candidates]: Successfully ranked candidates using 4-pillar composite scoring.
+[2026-09-16 10:35:06] [INFO] [08_final_candidates]: Exported master table: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/output/master_150_candidates_annotated.csv
+[2026-09-16 10:35:06] [INFO] [08_final_candidates]: Exported validation leads table: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/output/final_candidates_for_validation.csv
+[2026-09-16 10:35:08] [INFO] [08_final_candidates]: Saved Figure 1 to /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/figures/candidate_selection_funnel.png
+[2026-09-16 10:35:08] [INFO] [08_final_candidates]: Saved Figure 2 to /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/figures/lead_candidates_zscore_breakdown.png
+[2026-09-16 10:35:08] [INFO] [08_final_candidates]: === Module 08 Execution Completed Successfully ===
+[2026-09-16 10:40:45] [INFO] [08_final_candidates]: === Starting Module 08: Final Candidates Selection ===
+[2026-09-16 10:40:45] [INFO] [08_final_candidates]: Filtered for valid categories (1-AA, 2-AA, PS-CPL): 150 candidates remain.
+[2026-09-16 10:40:45] [INFO] [08_final_candidates]: Filtered using rosetta_candidates_selected.csv: 0 AF3-passed candidates remain.
+[2026-09-16 10:40:45] [INFO] [08_final_candidates]: Compiled master table: 0 AF3 structural candidates (0 passed Plot 1 gates).
+[2026-09-16 10:40:45] [INFO] [08_final_candidates]: Ranked 0 candidates. Isolated 0 green circle leads for Plot 2.
+[2026-09-16 10:40:45] [INFO] [08_final_candidates]: Exported master table: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/output/master_150_candidates_annotated.csv
+[2026-09-16 10:40:45] [INFO] [08_final_candidates]: Exported validation leads table: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/output/final_candidates_for_validation.csv
+[2026-09-16 10:40:46] [INFO] [08_final_candidates]: Saved Figure 1 to /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/figures/candidate_selection_funnel.png
+[2026-09-16 10:40:46] [WARNING] [08_final_candidates]: No candidates available to display in Figure 2.
+[2026-09-16 10:40:46] [INFO] [08_final_candidates]: === Module 08 Execution Completed Successfully ===
+[2026-09-16 10:47:19] [INFO] [08_final_candidates]: === Starting Module 08: Final Candidates Selection ===
+[2026-09-16 10:47:19] [INFO] [08_final_candidates]: Filtered for valid categories (1-AA, 2-AA, PS-CPL): 150 candidates remain.
+[2026-09-16 10:47:20] [INFO] [08_final_candidates]: Filtered using rosetta_candidates_selected.csv: 63 AF3-passed candidates remain.
+[2026-09-16 10:47:20] [INFO] [08_final_candidates]: Compiled master table: 63 AF3 structural candidates (3 passed Plot 1 gates).
+[2026-09-16 10:47:20] [INFO] [08_final_candidates]: Ranked 63 candidates. Isolated 3 leads for Plot 2.
+[2026-09-16 10:47:20] [INFO] [08_final_candidates]: Exported master table: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/output/master_150_candidates_annotated.csv
+[2026-09-16 10:47:20] [INFO] [08_final_candidates]: Exported validation leads table: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/output/final_candidates_for_validation.csv
+[2026-09-16 10:47:21] [INFO] [08_final_candidates]: Saved Figure 1 to /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/figures/candidate_selection_funnel.png
+[2026-09-16 10:47:21] [INFO] [08_final_candidates]: Saved Figure 2 to /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/figures/lead_candidates_zscore_breakdown.png
+[2026-09-16 10:47:21] [INFO] [08_final_candidates]: === Module 08 Execution Completed Successfully ===
+[2026-09-16 10:50:24] [INFO] [08_final_candidates]: === Starting Module 08: Final Candidates Selection ===
+[2026-09-16 10:50:24] [INFO] [08_final_candidates]: Filtered for valid categories (1-AA, 2-AA, PS-CPL): 150 candidates remain.
+[2026-09-16 10:50:24] [INFO] [08_final_candidates]: Filtered using rosetta_candidates_selected.csv: 63 AF3-passed candidates remain.
+[2026-09-16 10:50:24] [INFO] [08_final_candidates]: Compiled master table: 63 AF3 structural candidates (47 passed Plot 1 gates).
+[2026-09-16 10:50:24] [INFO] [08_final_candidates]: Ranked 63 candidates. Isolated 47 leads for Plot 2.
+[2026-09-16 10:50:24] [INFO] [08_final_candidates]: Exported master table: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/output/master_150_candidates_annotated.csv
+[2026-09-16 10:50:24] [INFO] [08_final_candidates]: Exported validation leads table: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/output/final_candidates_for_validation.csv
+[2026-09-16 10:50:25] [INFO] [08_final_candidates]: Saved Figure 1 to /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/figures/candidate_selection_funnel.png
+[2026-09-16 10:50:26] [INFO] [08_final_candidates]: Saved Figure 2 to /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/figures/lead_candidates_zscore_breakdown.png
+[2026-09-16 10:50:26] [INFO] [08_final_candidates]: === Module 08 Execution Completed Successfully ===
+[2026-09-16 11:02:14] [INFO] [08_final_candidates]: === Starting Module 08: Final Candidates Selection ===
+[2026-09-16 11:02:14] [INFO] [08_final_candidates]: Filtered for valid categories (1-AA, 2-AA, PS-CPL): 150 candidates remain.
+[2026-09-16 11:02:14] [INFO] [08_final_candidates]: Filtered using rosetta_candidates_selected.csv: 63 AF3-passed candidates remain.
+[2026-09-16 11:02:14] [INFO] [08_final_candidates]: Compiled master table: 63 AF3 structural candidates (15 passed Plot 1 gates).
+[2026-09-16 11:02:14] [INFO] [08_final_candidates]: Ranked 15 Step 1 passed leads with zero-centered Z-scores.
+[2026-09-16 11:02:14] [INFO] [08_final_candidates]: Exported master table: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/output/master_150_candidates_annotated.csv
+[2026-09-16 11:02:14] [INFO] [08_final_candidates]: Exported validation leads table: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/output/final_candidates_for_validation.csv
+[2026-09-16 11:02:15] [INFO] [08_final_candidates]: Saved Figure 1 to /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/figures/candidate_selection_funnel.png
+[2026-09-16 11:02:15] [INFO] [08_final_candidates]: Saved Figure 2 to /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/08_final_candidates_selection/figures/lead_candidates_zscore_breakdown.png
+[2026-09-16 11:02:15] [INFO] [08_final_candidates]: === Module 08 Execution Completed Successfully ===

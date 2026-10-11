@@ -1,0 +1,4 @@
+input_peptide_table: "../02_mimotopes_generation/output/QCFFCFKEL_in_silico_variants.tsv"
+pipeline_resources: "pipelines/neoscore/1.0.0/profiles/lsf/cluster.yaml"
+benchmark: False
+benchmark_grouping: True

@@ -1,0 +1,25 @@
+# 09_classII_context Configuration
+
+# Input paths
+input_candidates: "../08_final_candidates_selection/output/final_candidates_for_validation.csv"
+input_hla_typing: "leukopaks_hla_typing.csv"
+
+# Target protein sequence (BIRC5 / Survivin)
+wt_protein_seq: "MGAPTLPPAWQPFLKDHRISTFKNWPFLEGCACTPERMAEAGFIHCPTENEPDLAQCFFCFKELEGWEPDDDPIEEHKKHSSGCAFLSVKKQFEELTLGEFLKLDRERAKNKIAKETNNKKKEFEETAKKVRRAIEQLAAMD"
+wt_peptide: "QCFFCFKEL"
+
+# Window parameters
+kmer_lengths: [15, 16, 17, 18, 19, 20]
+
+# Selected Donors (1, 2, 4, 9, 11)
+target_donors:
+  - "LEUKOPAK1-AC"
+  - "LEUKOPAK2-AC"
+  - "LEUKOPAK4-AC"
+  - "LEUKOPAK9-SC"
+  - "LEUKOPAK11-SC"
+
+# Container configurations
+containers:
+  netmhc2pan: "/rsrch6/home/hema_bio-Malignan/adp_shukla/pipeline_resources/netmhc2pan/netmhc2pan-4.3b/netmhc2pan.4.3b.sif"
+  r_env: "/rsrch6/home/hema_bio-Malignan/adp_shukla/pipeline_resources/antigen_selection_pipeline/complex-heatmap.3.19.sif"

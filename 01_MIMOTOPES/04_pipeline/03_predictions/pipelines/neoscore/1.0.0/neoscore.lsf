@@ -1,0 +1,44 @@
+#BSUB -W 24:00
+#BSUB -q medium
+#BSUB -m e80
+#BSUB -n 2
+#BSUB -M 8
+#BSUB -R rusage[mem=8]
+#BSUB -B
+#BSUB -N
+#BSUB -J neoscore
+#BSUB -cwd .
+#BSUB -o ./logs
+
+BENCHMARK=$(grep -E '^benchmark:' pipelines/neoscore/1.0.0/config/config.yaml | sed -E 's/^[^:]+: *//')
+PIPELINE_RESOURCES=$(grep -E '^pipeline_resources:' pipelines/neoscore/1.0.0/config/config.yaml  | sed -E "s/^[^:]+:[[:space:]]*//; s/^[[:space:]]+//; s/[[:space:]]+$//; s/^['\"](.*)['\"]$/\1/")
+
+SNAKEMAKE_CMD="snakemake --profile profiles/lsf -s pipelines/neoscore/1.0.0/Snakefile \
+--cluster-config $PIPELINE_RESOURCES \
+--config profile_resources=$PIPELINE_RESOURCES \
+--log-handler-script scripts/utils/log_handler.py"
+
+SNAKEMAKE_PLOTCMD="snakemake --profile profiles/lsf -s pipelines/neoscore/1.0.0/Snakefile \
+--cluster-config pipelines/benchmark/1.0.0/profiles/lsf/cluster.yaml \
+--config profile_resources=pipelines/benchmark/1.0.0/profiles/lsf/cluster.yaml \
+-group-components benchmarks=80 --log-handler-script scripts/utils/log_handler.py"
+
+# Run the correct Snakemake command based on Benchmark mode
+case "$BENCHMARK" in
+    True)
+        echo "Running with Multi-Benchmarks..."
+        eval "$SNAKEMAKE_CMD"
+        ;;
+    False)
+        echo "Running without Multi-Benchmarks..."
+        eval "$SNAKEMAKE_CMD"
+        ;;
+    Plots)
+        echo "Creating Benchmark Plots"
+        eval "$SNAKEMAKE_PLOTCMD"
+        ;;
+    *)
+        echo "Error: Invalid value. Must be 'True', 'False', or 'Plots'."
+        exit 1
+        ;;
+esac

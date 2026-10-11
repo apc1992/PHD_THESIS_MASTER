@@ -1,0 +1,42 @@
+# Ignore local test/output directories
+/all_*/
+/single_*/
+/polysome*/
+
+# Ignore the running libraries
+libraries.csv
+resources/example_libraries_long.csv
+resources/pancan_libraries.csv
+
+# Ignore everything in the results directory, but keep the directory itself
+/results/*
+!/results/.gitkeep
+
+# Ignore everything in the logs directory, but keep the directory itself
+/logs/*
+!/logs/.gitkeep
+
+# Running settings
+.config/
+.snakemake/
+.cache/
+**/__pycache__/
+
+# Input
+/input/*
+!/input/.gitkeep
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+._.DS_Store
+.bash_history
+
+# Ignore PyTorch Lightning log directory
+lightning_logs/
+
+# Ignore the .java cache directory
+.java/

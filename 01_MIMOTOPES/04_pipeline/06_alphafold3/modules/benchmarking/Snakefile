@@ -1,0 +1,10 @@
+import os
+import pandas as pd
+
+include: os.path.join("rules", "benchmarks.smk")
+rule all:
+    """This is the entire NeoLR pipeline"""
+    input:
+        benchmark_summary = rules.gather_benchmarks.output.benchmark_summary,
+        execution_time = rules.plot_benchmarks.output.execution_time,
+        memory_usage = rules.plot_benchmarks.output.memory_usage

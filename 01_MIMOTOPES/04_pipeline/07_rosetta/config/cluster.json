@@ -1,0 +1,14 @@
+{
+  "__default__": {
+    "mem": 4,
+    "n": 1,
+    "time": "24:00",
+    "queue": "medium"
+  },
+  "rosetta_relax": {
+    "mem": 128,
+    "n": 12,
+    "time": "8:00",
+    "queue": "medium"
+  }
+}

@@ -1,0 +1,6 @@
+libraries: "pipelines/alphafold3/1.0.0/resources/libraries_all_candidates.csv"
+pipeline_resources: "pipelines/alphafold3/1.0.0/profiles/lsf/cluster.yaml"
+benchmark: False
+benchmark_grouping: True
+containers:
+  alphafold3: "/rsrch6/home/hema_bio-Malignan/adp_shukla/pipeline_resources/alphafold3/alphafold3.sif"

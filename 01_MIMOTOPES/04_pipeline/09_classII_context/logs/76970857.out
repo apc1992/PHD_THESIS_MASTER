@@ -1,0 +1,56 @@
+=== Running NetMHCIIpan 4.3b via Singularity across Allele Files ===
+Processing output/mhc2_alleles_drb.txt (189 chars)...
+Processing output/mhc2_alleles_dp.txt (663 chars)...
+Processing output/mhc2_alleles_dq_part1.txt (791 chars)...
+Processing output/mhc2_alleles_dq_part2.txt (219 chars)...
+=== Step 4: Parsing Predictions ===
+Successfully processed 0 predictions into results/netmhc2pan_parsed_results.csv
+=== Workflow Complete ===
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@edragon092>
+Subject: Job 76970857: <mhc2> in cluster <seadragon_cluster> Done
+
+Job <mhc2> was submitted from host <ldragon3> by user <aperis> in cluster <seadragon_cluster> at Wed Sep 16 11:51:18 2026
+Job was executed on host(s) <10*edragon092>, in queue <short>, as user <aperis> in cluster <seadragon_cluster> at Wed Sep 16 11:52:47 2026
+</home/aperis> was used as the home directory.
+</rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/09_classII_context/.> was used as the working directory.
+Started at Wed Sep 16 11:52:47 2026
+Terminated at Wed Sep 16 11:58:18 2026
+Results reported at Wed Sep 16 11:58:18 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#BSUB -W 3:00
+#BSUB -q short
+#BSUB -o ./logs
+#BSUB -cwd .
+#BSUB -n 10
+#BSUB -M 128
+#BSUB -R rusage[mem=128]
+#BSUB -J mhc2
+#BSUB -P mimotpes
+
+./run_classII_pipeline.sh
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   322.25 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     128.00 GB
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              12
+    Max Threads :                                25
+    Run time :                                   337 sec.
+    Turnaround time :                            420 sec.
+
+The output (if any) is above this job summary.
+

@@ -1,0 +1,40 @@
+import os
+import re
+import sys
+import yaml
+import pandas as pd
+import importlib.util
+from pathlib import Path
+
+# Define paths using os.path.join for absolute consistency
+base_dir = os.getcwd()
+pipeline_dir = os.path.join(base_dir, "pipelines", "neoscore", "1.0.0")
+utils_path = os.path.join(pipeline_dir, "scripts", "utils.py")
+
+# Import the module dynamically
+spec = importlib.util.spec_from_file_location("local_utils", utils_path)
+local_utils = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(local_utils)
+
+# Load configurations (Order matters: later files override earlier ones)
+configfile: os.path.join(pipeline_dir, "config", "config.yaml")
+configfile: os.path.join(base_dir, "modules", "neoscore", "1.0.0", "netmhcpan", "4.2.0", "config", "config.yaml")
+configfile: os.path.join(base_dir, "modules", "neoscore", "1.0.0", "netmhcstab", "1.0.1", "config", "config.yaml")
+configfile: os.path.join(base_dir, "modules", "neoscore", "1.0.0", "antigen_scoring", "1.0.0", "config", "config.yaml")
+
+# Handle Cluster/Rule resources
+cluster_path = Path(config["profile_resources"])
+config["cluster"] = yaml.safe_load(cluster_path.read_text())
+
+# Validate MHC alleles now that all configs are merged
+local_utils.check_mhc1_alleles(config)
+
+# Include module rules
+include: os.path.join(pipeline_dir, "modules.smk")
+
+rule all:
+    input:
+        os.path.join("results", "netmhcpan", "netmhcpan_predictions_full_table.csv"),
+        os.path.join("results", "netmhcpan", "netmhcpanstab_predictions_full_table.csv"),
+        os.path.join("results", "netmhcpan", "predictions_table.csv"),
+        os.path.join("results", "neo_score", "neo_scores.csv")

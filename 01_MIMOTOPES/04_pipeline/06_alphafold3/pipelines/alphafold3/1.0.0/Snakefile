@@ -1,0 +1,30 @@
+import os
+import sys
+import yaml
+import pandas as pd
+sys.path.append(os.getcwd())
+
+# Cluster
+cluster_path = Path(config["profile_resources"])
+config["cluster"] = yaml.safe_load(cluster_path.read_text())
+configfile: os.path.join(os.getcwd(), "pipelines", "alphafold3", "1.0.0", "config", "config.yaml")
+
+# Samples
+config["samples"] = pd.read_csv(config['libraries']).set_index("id")
+id = pd.read_csv(config['libraries']).set_index("id").index.to_list()
+
+
+include: "modules.smk"
+if config["benchmark"] is False:
+    rule all:
+        input:
+            expand(rules.preprocess_all.input.fasta, sample=id),
+elif config["benchmark"] is True:
+    rule all:
+        input:
+            expand(rules.preprocess_all.input, sample=id, threads=[8, 16, 20, 40, 60, 80]),
+else:
+    rule all:
+        input:
+            rules.benchmarking_all.input
+        default_target: True

@@ -1,0 +1,6 @@
+__default__:
+  -P: "antigen_discovery_platform"
+  -q: "medium"
+  -n: 1
+  -W: "24:00"
+  mem_mb: 8

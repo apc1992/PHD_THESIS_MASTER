@@ -1,0 +1,16 @@
+[2026-08-25 12:10:26] [INFO] [02_mimotopes_generation]: Starting Module 02: In Silico Mimotope Generation
+[2026-08-25 12:10:26] [INFO] [02_mimotopes_generation]: Loaded 1 target peptide(s) from peptides.csv
+[2026-08-25 12:10:26] [INFO] [02_mimotopes_generation]: Processing Peptide [1/1]: QCFFCFKEL
+[2026-08-25 12:10:26] [INFO] [02_mimotopes_generation]: Parsed constraints across 7 position(s) from restrictions.csv
+[2026-08-25 12:10:27] [INFO] [02_mimotopes_generation]: Saved restriction heatmap: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/02_mimotopes_generation/figures/QCFFCFKEL_restriction_heatmap.png
+[2026-08-25 12:10:30] [INFO] [02_mimotopes_generation]: Completed QCFFCFKEL in 3.81s. Total variants generated: 314,853
+[2026-08-25 12:10:30] [INFO] [02_mimotopes_generation]: Category Breakdown: {'PS-CPL': 301685, '2AA': 12996, '1AA': 171, 'WT': 1}
+[2026-08-25 12:10:30] [INFO] [02_mimotopes_generation]: Output saved to: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/02_mimotopes_generation/output/QCFFCFKEL_in_silico_variants.csv
+[2026-08-25 12:10:30] [INFO] [02_mimotopes_generation]: Module 02 execution completed successfully.
+[2026-08-25 13:06:46] [INFO] [02_mimotopes_generation]: Starting Module 02: In Silico Mimotope Generation
+[2026-08-25 13:06:46] [INFO] [02_mimotopes_generation]: Processing Peptide [1/1]: QCFFCFKEL
+[2026-08-25 13:06:46] [INFO] [02_mimotopes_generation]: Parsed constraints for all 9 positions from restrictions.csv
+[2026-08-25 13:06:47] [INFO] [02_mimotopes_generation]: Saved corrected restriction heatmap: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/02_mimotopes_generation/figures/QCFFCFKEL_restriction_heatmap.png
+[2026-08-25 13:06:57] [INFO] [02_mimotopes_generation]: VERIFICATION PASSED: 100% of PS-CPL variants strictly respect positional constraints.
+[2026-08-25 13:06:58] [INFO] [02_mimotopes_generation]: Completed QCFFCFKEL in 12.07s. Saved 314,853 variants to /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/02_mimotopes_generation/output/QCFFCFKEL_in_silico_variants.csv
+[2026-08-25 13:06:58] [INFO] [02_mimotopes_generation]: Module 02 execution completed successfully.

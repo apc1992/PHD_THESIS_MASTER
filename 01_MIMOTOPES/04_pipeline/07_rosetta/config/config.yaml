@@ -1,0 +1,7 @@
+# config/config.yaml
+rosetta_container: "/rsrch4/home/hema_bio-Malignan/CPRIT-Shukla_Lab/pipeline_resources/rosetta/rosetta.sif"
+input_csv: "input_libraries.csv"
+output_dir: "rosetta_outputs"
+
+# FastRelax parameters
+nstruct: 5  # Number of decoys (trajectories) to generate per candidate

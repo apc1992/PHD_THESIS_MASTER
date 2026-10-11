@@ -1,0 +1,11 @@
+#BSUB -W 3:00
+#BSUB -q short
+#BSUB -o ./logs
+#BSUB -cwd .
+#BSUB -n 10
+#BSUB -M 128
+#BSUB -R rusage[mem=128]
+#BSUB -J mhc2
+#BSUB -P mimotpes
+
+./run_classII_pipeline.sh

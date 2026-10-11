@@ -1,0 +1,6 @@
+containers:
+  netmhcstab: "/rsrch4/home/hema_bio-Malignan/CPRIT-Shukla_Lab/pipeline_resources/netmhcstabpan/netmhcstabpan_1.0.1.sif"
+netmhcpan:
+  available_alleles: "/rsrch6/home/hema_bio-Malignan/adp_shukla/pipeline_resources/netmhcpan-4.1b/list_mhc_alleles.txt"
+  alleles:
+    A: "HLA-A02:01"

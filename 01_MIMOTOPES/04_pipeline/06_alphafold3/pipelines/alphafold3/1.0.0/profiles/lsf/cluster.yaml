@@ -1,0 +1,25 @@
+__default__:
+    project: "alphafold3"
+    mem: 40
+    n: 2
+    time: "03:00"
+    queue: medium
+    extra: '-R "select[hname!=gdragon013]"'
+    time_min: 180
+
+# preprocess
+preprocess_process_peptides:
+    mem: 16
+    n: 1
+    time: "2:00"
+    queue: "egpu"
+    extra: '-gpu "num=1:gmem=16:j_exclusive=yes:gvendor=nvidia" -R "select[hname!=gdragon013]"'
+    time_min: 120
+
+alphafold3_group:
+    mem: 16
+    n: 1
+    time: "2:00"
+    queue: "egpu"
+    extra: '-gpu "num=1:gmem=16:j_exclusive=yes:gvendor=nvidia" -R "select[hname!=gdragon013]"'
+    time_min: 120

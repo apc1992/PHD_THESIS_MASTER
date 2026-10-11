@@ -1,0 +1,8 @@
+containers:
+  blast: "/rsrch6/home/hema_bio-Malignan/adp_shukla/pipeline_resources/blastp/blast.2.15.sif"
+  R: "/rsrch6/home/hema_bio-Malignan/adp_shukla/pipeline_resources/neoLR/containers/rbase_neolr.sif"
+  neo_score: "/rsrch4/home/hema_bio-Malignan/CPRIT-Shukla_Lab/pipeline_resources/neo_score/neo_score.sif"
+
+blast_databases:
+  human: "/rsrch4/home/hema_bio-Malignan/CPRIT-Shukla_Lab/pipeline_resources/neo_score/human.bdb"
+  iedb: "/rsrch4/home/hema_bio-Malignan/CPRIT-Shukla_Lab/pipeline_resources/neo_score/iedb.bdb"

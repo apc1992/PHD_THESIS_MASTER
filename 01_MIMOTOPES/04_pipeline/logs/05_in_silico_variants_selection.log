@@ -1,0 +1,20 @@
+[2026-09-09 22:51:40] [INFO] [05_selection]: === INITIALIZING MODULE 05: STRUCTURAL-FIRST VARIANTS SELECTION ===
+[2026-09-09 22:51:40] [INFO] [05_selection]: Loading summary metrics from: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/04_data_summary/output/QCFFCFKEL_in_silico_variants_metrics.csv
+[2026-09-09 22:51:45] [INFO] [05_selection]: Extracting top structural candidates (~50 variants per arm)...
+[2026-09-09 22:52:03] [INFO] [05_selection]: Successfully exported 1 top structural candidates for AF3 / Rosetta modeling.
+[2026-09-09 22:52:03] [INFO] [05_selection]: === MODULE 05 COMPLETE ===
+[2026-09-10 13:51:31] [INFO] [05_selection]: === INITIALIZING MODULE 05: IN SILICO VARIANTS SELECTION ===
+[2026-09-10 13:51:31] [INFO] [05_selection]: Loading summary metrics from: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/04_data_summary/output/QCFFCFKEL_in_silico_variants_metrics.csv
+[2026-09-10 13:51:36] [INFO] [05_selection]: Extracting top 50 variants per category...
+[2026-09-10 13:51:42] [INFO] [05_selection]: Successfully exported 150 candidates across 1AA, 2AA, and PS-CPL arms.
+[2026-09-10 13:51:42] [INFO] [05_selection]: === MODULE 05 COMPLETE ===
+[2026-09-10 13:55:59] [INFO] [05_selection]: === INITIALIZING MODULE 05: IN SILICO VARIANTS SELECTION ===
+[2026-09-10 13:55:59] [INFO] [05_selection]: Loading summary metrics from: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/04_data_summary/output/QCFFCFKEL_in_silico_variants_metrics.csv
+[2026-09-10 13:56:05] [INFO] [05_selection]: Extracting top 50 variants per category...
+[2026-09-10 13:56:11] [INFO] [05_selection]: Successfully exported 150 candidates across 1AA, 2AA, and PS-CPL arms.
+[2026-09-10 13:56:11] [INFO] [05_selection]: === MODULE 05 COMPLETE ===
+[2026-09-10 14:44:26] [INFO] [05_selection]: === INITIALIZING MODULE 05: IN SILICO VARIANTS SELECTION ===
+[2026-09-10 14:44:26] [INFO] [05_selection]: Loading summary metrics from: /rsrch9/scratch/hema_bio-Malignan/aperis/af3_mimotopes/pipeline/04_data_summary/output/QCFFCFKEL_in_silico_variants_metrics.csv
+[2026-09-10 14:44:30] [INFO] [05_selection]: Extracting top 50 variants per category...
+[2026-09-10 14:44:36] [INFO] [05_selection]: Successfully exported 150 candidates across 1AA, 2AA, and PS-CPL arms.
+[2026-09-10 14:44:36] [INFO] [05_selection]: === MODULE 05 COMPLETE ===

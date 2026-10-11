@@ -1,0 +1,22 @@
+__default__:
+  mem: 200
+  n: 1
+  time: "03:00"
+  queue: short
+  host: ""
+  time_min: 1440
+
+#############
+benchmarking_gather_benchmarks:
+  mem: 24
+  n: 10
+  time: "03:00"
+  queue: short
+  time_min: 1440
+
+benchmarking_plot_benchmarks:
+  mem: 24
+  n: 10
+  time: "03:00"
+  queue: short
+  time_min: 1440

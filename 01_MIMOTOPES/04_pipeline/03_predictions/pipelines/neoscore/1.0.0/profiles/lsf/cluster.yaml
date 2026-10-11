@@ -1,0 +1,91 @@
+__default__:
+    mem: 4
+    n: 1
+    time: "03:00"
+    queue: short
+    host: ""
+    time_min: 180
+
+write_mhc1_peptides: 
+  mem: 16
+  n: 1
+  time: "01:00"
+  queue: short
+  time_min: 60
+
+run_netmhcpan:
+  mem: 128
+  n: 8
+  time: "03:00"
+  queue: short
+  time_min: 180
+
+run_netmhcstab:
+  mem: 128
+  n: 8
+  time: "03:00"
+  queue: short
+  time_min: 180
+
+process_netmhcpan_output:
+  mem: 16
+  n: 1
+  time: "01:00"
+  queue: short
+  time_min: 60
+
+process_netmhcstabpan_output:
+  mem: 16
+  n: 1
+  time: "01:00"
+  queue: short
+  time_min: 60
+
+merge_netmhcpan_predictions:
+  mem: 32
+  n: 1
+  time: "03:00"
+  queue: short
+  time_min: 180
+
+merge_netmhcstabpan_predictions:
+  mem: 32
+  n: 1
+  time: "03:00"
+  queue: short
+  time_min: 180
+
+pep_to_fasta:
+  mem: 16
+  n: 1
+  time: "01:00"
+  queue: short
+  time_min: 60
+
+iedb_alignment:
+  mem: 32
+  n: 2
+  time: "03:00"
+  queue: short
+  time_min: 180
+
+human_alignment:
+  mem: 32
+  n: 2
+  time: "03:00"
+  queue: short
+  time_min: 180
+
+calculate_scores:
+  mem: 32
+  n: 1
+  time: "03:00"
+  queue: short
+  time_min: 180
+
+merge_score_files:
+  mem: 16
+  n: 1
+  time: "03:00"
+  queue: short
+  time_min: 180

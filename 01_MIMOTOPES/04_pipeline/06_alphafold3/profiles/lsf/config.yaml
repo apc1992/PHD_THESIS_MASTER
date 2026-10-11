@@ -1,0 +1,15 @@
+latency-wait: "90"
+jobscript: "lsf_jobscript.sh"
+use-conda: "False"
+use-singularity: true
+printshellcmds: "False"
+restart-times: "0"
+jobs: "5218"
+cluster: "lsf_submit.py"
+cluster-status: "lsf_status.py"
+cluster-cancel: "lsf_cancel.py"
+max-jobs-per-second: "10"
+max-status-checks-per-second: "10"
+keep-going: true
+shadow-prefix: "/tmp"
+singularity-args: "--net --network none -B $(pwd):$(pwd) -B /rsrch4:/rsrch4 -B /rsrch6:/rsrch6 -B /rsrch9:/rsrch9"
